@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/translator.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Language Translator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+  </head>
+  <body>
+    <section>
+      <nav class="navbar">
+        <div class="content">
+          <div class="logo">
+            <a href="#">NMT</a>
+          </div>
+          <ul class="menu-list">
+            <div class="icon cancel-btn">
+              <i class="fas fa-times"></i>
+            </div>
+            <li><a href="index.html">Text Translator</a></li>
+            <li>
+              <a href="imageTranslator.html">Image Translator</a>
+            </li>
+            <li>
+              <a href="videoTranslator.html" class="active">Video Translator</a>
+            </li>
+          </ul>
+          <div class="icon menu-btn">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </nav>
+    </section>
+    <div class="body">
+      <section class="container">
+        <div class="container">
+          <div class="card input-wrapper">
+            <div class="from">
+              <span class="heading">From :</span>
+              <div class="dropdown-container" id="input-language">
+                <div class="dropdown-toggle">
+                  <ion-icon name="globe-outline"></ion-icon>
+                  <span class="selected" data-value="en">English</span>
+                  <ion-icon name="chevron-down-outline"></ion-icon>
+                </div>
+                <ul class="dropdown-menu">
+                  <li class="option active">DropDown Menu Item 1</li>
+                  <li class="option">DropDown Menu Item 2</li>
+                </ul>
+              </div>
+            </div>
+            <div id="drop-zone">
+              <video
+                id="video"
+                src=""
+                alt=""
+                width="400px"
+                height="400px"
+                controls
+                style="display: none"
+              ></video>
+              <p id="p">Drop file or click to upload</p>
+              <input type="file" id="myfile" hidden />
+            </div>
+            <div class="card-bottom">
+              <button id="translatebtn" type="button">
+                Upload and Translate
+              </button>
+            </div>
+          </div>
+
+          <div class="center">
+            <div class="swap-position">
+              <ion-icon name="swap-horizontal-outline"></ion-icon>
+            </div>
+          </div>
+
+          <div class="card output-wrapper">
+            <div class="to">
+              <span class="heading">To :</span>
+              <div class="dropdown-container" id="output-language">
+                <div class="dropdown-toggle">
+                  <ion-icon name="globe-outline"></ion-icon>
+                  <span class="selected" data-value="hi">Hindi</span>
+                  <ion-icon name="chevron-down-outline"></ion-icon>
+                </div>
+                <ul class="dropdown-menu">
+                  <li class="option active">DropDown Menu Item 1</li>
+                  <li class="option">DropDown Menu Item 2</li>
+                </ul>
+              </div>
+            </div>
+            <video
+              id="translated_video"
+              src=""
+              alt=""
+              width="400px"
+              height="400px"
+              controls
+            ></video>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script>
+      const body = document.querySelector("body");
+      const navbar = document.querySelector(".navbar");
+      const menuBtn = document.querySelector(".menu-btn");
+      const cancelBtn = document.querySelector(".cancel-btn");
+      menuBtn.onclick = () => {
+        navbar.classList.add("show");
+        menuBtn.classList.add("hide");
+        body.classList.add("disabled");
+      };
+      cancelBtn.onclick = () => {
+        body.classList.remove("disabled");
+        navbar.classList.remove("show");
+        menuBtn.classList.remove("hide");
+      };
+      window.onscroll = () => {
+        this.scrollY > 20
+          ? navbar.classList.add("sticky")
+          : navbar.classList.remove("sticky");
+      };
+    </script>
+    <script src="js/languages.js"></script>
+    <script src="js/videotrans.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+  </body>
+</html>

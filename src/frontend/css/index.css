@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --black: #000000ff;
+  --blue-crayola: #3a75e9ff;
+
+  --primary-color: #356aff;
+  --bg-color: #f5f5f5;
+  --light-bg-color: #fff;
+  --text-color: #111116;
+  --light-text-color: #cdccd1;
+  --primary-text-color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 30px;
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 30px;
+  background: var(--primary-color);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bg-color);
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 50px 30px;
+  }
+}
+
+.content {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 30px;
+}
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  padding: 25px 0;
+  transition: all 0.3s ease;
+}
+.navbar.sticky {
+  padding: 15px 0;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  background-color: var(--blue-crayola);
+}
+
+.navbar.sticky .logo a {
+  color: #fff;
+}
+
+.navbar.sticky .menu-list li a {
+  color: #fff;
+}
+
+.navbar.sticky .menu-list li a::after {
+  background: #fff;
+}
+
+.navbar .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar .logo a {
+  color: var(--blue-crayola);
+  font-size: 30px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.navbar .menu-list {
+  display: inline-flex;
+}
+
+.menu-list li {
+  list-style: none;
+}
+
+.menu-list li a:not(.active),
+.navbar.sticky .menu-list li a:not(.active) {
+  color: rgb(182, 182, 182);
+}
+
+.menu-list li a:not(.active):hover {
+  color: var(--blue-crayola);
+}
+
+.navbar.sticky .menu-list li a:not(.active):hover {
+  color: #fff;
+}
+
+.menu-list li a {
+  position: relative;
+  color: var(--blue-crayola);
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.menu-list li a::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--blue-crayola);
+  transition: 0.3s ease-in-out;
+}
+
+.menu-list li a:hover::after {
+  width: 100%;
+}
+
+.icon {
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
+.menu-list .cancel-btn {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+}
+
+#drop-zone {
+  width: 100%;
+  height: 450px;
+  border: 3px dotted var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#drop-zone img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.copybtn {
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.copybtn::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--blue-crayola);
+  transition: 0.3s ease-in-out;
+}
+
+.copybtn:hover {
+  color: var(--blue-crayola);
+}
+
+.copybtn:hover::after {
+  width: 100%;
+}
+
+.speakerIcon {
+  width: 40px;
+  cursor: pointer;
+}
+
+@media (max-width: 868px) {
+  .menu-list li a::after {
+    display: none;
+  }
+  body.disabled {
+    overflow: hidden;
+  }
+  .icon {
+    display: block;
+  }
+  .icon.hide {
+    display: none;
+  }
+  .navbar .menu-list {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    max-width: 400px;
+    left: -100%;
+    top: 0px;
+    display: block;
+    padding: 40px 0;
+    text-align: center;
+    background: #222;
+    transition: all 0.3s ease;
+  }
+  .navbar.show .menu-list {
+    left: 0%;
+  }
+  .navbar .menu-list li {
+    margin-top: 45px;
+  }
+  .navbar .menu-list li a {
+    font-size: 23px;
+    margin-left: -100%;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  .navbar.show .menu-list li a {
+    margin-left: 0px;
+  }
+}
+@media (max-width: 380px) {
+  .navbar .logo a {
+    font-size: 27px;
+  }
+}
